@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI for CA Students by Neshworks x The CA Classroom</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #F7F6F1;
+  --dark: #19181C;
+  --accent: #4840CC;
+  --accent-light: #EEEDFC;
+  --accent-mid: #AFA9EC;
+  --teal: #0D7A5F;
+  --teal-light: #DCF2EA;
+  --amber: #B8720F;
+  --amber-light: #FDF0DC;
+  --coral: #C04530;
+  --coral-light: #FAECE7;
+  --blue: #1558A0;
+  --blue-light: #E4EEF9;
+  --text: #19181C;
+  --text-muted: #6B6960;
+  --text-light: #9C9A92;
+  --border: #D8D6CD;
+  --surface: #EDECEA;
+  --white: #FFFFFF;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAV */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(247, 246, 241, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 48px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-brand .divider {
+  color: var(--border);
+  font-weight: 300;
+}
+
+.nav-brand .course-name {
+  color: var(--text-muted);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 13px;
+}
+
+.nav-right {
+  font-size: 12px;
+  color: var(--text-light);
+  letter-spacing: 0.03em;
+}
+
+/* HERO */
+.hero {
+  background: var(--dark);
+  padding: 96px 48px 88px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(72, 64, 204, 0.14) 0%, transparent 70%);
+  top: -100px;
+  left: -100px;
+  pointer-events: none;
+}
+
+.hero-glow-2 {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(13, 122, 95, 0.1) 0%, transparent 70%);
+  bottom: -50px;
+  right: 100px;
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 20px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.25);
+  flex-shrink: 0;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 7vw, 80px);
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 1.05;
+  margin-bottom: 24px;
+  letter-spacing: -0.025em;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.hero-tagline {
+  font-size: clamp(17px, 2.5vw, 22px);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+.hero-sub {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.38);
+  margin-bottom: 44px;
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.stat-pill {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 12px;
+  font-weight: 400;
+  padding: 6px 14px;
+  border-radius: 100px;
+  letter-spacing: 0.01em;
+}
+
+.stat-pill.hl {
+  background: rgba(72, 64, 204, 0.22);
+  border-color: rgba(72, 64, 204, 0.35);
+  color: #C4C0F5;
+}
+
+/* FADE IN */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-inner > * {
+  animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.hero-inner > *:nth-child(1) { animation-delay: 0.05s; }
+.hero-inner > *:nth-child(2) { animation-delay: 0.15s; }
+.hero-inner > *:nth-child(3) { animation-delay: 0.25s; }
+.hero-inner > *:nth-child(4) { animation-delay: 0.32s; }
+.hero-inner > *:nth-child(5) { animation-delay: 0.4s; }
+
+/* SHARED SECTION STYLES */
+.sec {
+  padding: 80px 48px;
+}
+
+.inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.sec-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
+
+.sec-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 400;
+  line-height: 1.18;
+  color: var(--text);
+  margin-bottom: 14px;
+  letter-spacing: -0.025em;
+}
+
+.sec-sub {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.75;
+  max-width: 560px;
+  margin-bottom: 44px;
+}
+
+/* WHO THIS IS FOR */
+.for-sec {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 72px 48px;
+}
+
+.for-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 40px;
+}
+
+.for-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 26px;
+  transition: border-color 0.2s;
+}
+
+.for-card:hover { border-color: #B4B2A9; }
+
+.for-num {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--border);
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+.for-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.for-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* MODULES */
+.modules-sec {
+  background: var(--bg);
+  padding: 80px 48px;
+}
+
+.phase-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+  margin-top: 52px;
+}
+
+.phase-row:first-of-type { margin-top: 0; }
+
+.phase-badge {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+
+.phase-badge.p1 { background: var(--teal-light); color: var(--teal); }
+.phase-badge.p2 { background: var(--accent-light); color: var(--accent); }
+
+.phase-desc { font-size: 13px; color: var(--text-muted); }
+.phase-line { flex: 1; height: 1px; background: var(--border); }
+.phase-hrs { font-size: 12px; color: var(--text-light); font-weight: 500; }
+
+/* MODULE CARD */
+.mod-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mod-card:hover { border-color: #B4B2A9; }
+
+.mod-card.open {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(72, 64, 204, 0.06);
+}
+
+.mod-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.mod-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.mod-info { flex: 1; min-width: 0; }
+
+.mod-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 3px;
+  line-height: 1.35;
+}
+
+.mod-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  display: flex;
+  gap: 8px;
+}
+
+.mod-tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 100px;
+  flex-shrink: 0;
+}
+
+.mod-chev {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.25s ease, background 0.2s ease;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.mod-card.open .mod-chev {
+  transform: rotate(180deg);
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+.mod-body {
+  display: none;
+  padding: 0 24px 28px 80px;
+  border-top: 1px solid var(--border);
+  animation: fadeUp 0.3s ease both;
+}
+
+.mod-body.open { display: block; }
+
+.mod-hook {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--text);
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 4px;
+  line-height: 1.55;
+}
+
+.body-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin: 18px 0 10px;
+}
+
+.lesson-list {
+  list-style: none;
+}
+
+.lesson-list li {
+  font-size: 13px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--surface);
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  line-height: 1.5;
+}
+
+.lesson-list li:last-child { border-bottom: none; }
+
+.l-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+
+.l-body { flex: 1; }
+
+.l-title {
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.l-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.tools-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.tool-chip {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 100px;
+  border: 1px solid;
+}
+
+.outcome-box {
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-top: 18px;
+}
+
+.outcome-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.outcome-text {
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+/* PRINCIPLES */
+.principles-sec {
+  background: var(--dark);
+  padding: 80px 48px;
+}
+
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  margin-top: 44px;
+}
+
+.p-card {
+  background: var(--dark);
+  padding: 32px 28px;
+}
+
+.p-num {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.1);
+  margin-bottom: 14px;
+  line-height: 1;
+}
+
+.p-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.p-desc {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.42);
+  line-height: 1.65;
+}
+
+/* RESOURCES */
+.resources-sec {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 80px 48px;
+}
+
+.res-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+  gap: 10px;
+  margin-top: 44px;
+}
+
+.res-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px 20px;
+  transition: border-color 0.2s;
+}
+
+.res-card:hover { border-color: #B4B2A9; }
+
+.res-icon {
+  font-size: 24px;
+  margin-bottom: 14px;
+  display: block;
+}
+
+.res-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+
+.res-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+/* INSTRUCTOR */
+.instructor-sec {
+  background: var(--bg);
+  padding: 72px 48px;
+}
+
+.instructor-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 32px;
+  align-items: start;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.instructor-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 26px;
+  color: rgba(255, 255, 255, 0.7);
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+}
+
+.instructor-role {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.instructor-name {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+
+.instructor-bio {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.75;
+  max-width: 560px;
+}
+
+.instructor-bio strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* FOOTER */
+footer {
+  background: var(--dark);
+  padding: 36px 48px;
+}
+
+.footer-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-brand {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.footer-note {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+  nav, .hero, .sec, .pos-sec, .modules-sec, .principles-sec, .resources-sec, .instructor-sec, footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .pos-grid { grid-template-columns: 1fr; }
+  .pos-col.left { border-right: none; border-bottom: 1px solid var(--border); }
+  .for-grid { grid-template-columns: 1fr; }
+  .principles-grid { grid-template-columns: 1fr; }
+
+  .mod-body { padding-left: 20px; }
+
+  .instructor-card {
+    grid-template-columns: 1fr;
+    padding: 24px;
+  }
+
+  .footer-inner { flex-direction: column; gap: 6px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    Neshworks x The CA Classroom
+    <span class="divider">|</span>
+    <span class="course-name">AI for CA Students</span>
+  </div>
+  <div class="nav-right">2026 &nbsp;·&nbsp; Standalone &nbsp;·&nbsp; 10 hours</div>
+</nav>
+
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Neshworks x The CA Classroom &nbsp;·&nbsp; 2026 &nbsp;·&nbsp; Standalone course</div>
+    <h1>AI for<br><em>CA Students</em></h1>
+    <p class="hero-tagline">Study smarter. Article better. Get hired first.</p>
+    <p class="hero-sub">The only AI course built specifically for CA Inter students — taught by a Fractional AI Operator who deploys AI at real firms.</p>
+    <div class="hero-stats">
+      <span class="stat-pill">10 hours</span>
+      <span class="stat-pill">5 modules</span>
+      <span class="stat-pill hl">CA Inter focused</span>
+      <span class="stat-pill">Subject-by-subject exam prep</span>
+      <span class="stat-pill">2 AI tools you build and keep</span>
+      <span class="stat-pill">Certificate included</span>
+      <span class="stat-pill">Practitioner taught</span>
+    </div>
+  </div>
+</section>
+
+<section class="for-sec">
+  <div class="inner">
+    <div class="sec-label">Who this is for</div>
+    <h2 class="sec-title">Built for exactly<br>where you are right now.</h2>
+    <div class="for-grid">
+      <div class="for-card">
+        <div class="for-num">01</div>
+        <div class="for-title">You are a CA Inter student</div>
+        <div class="for-desc">The course is built around the CA Inter syllabus from the ground up. Every demo, every prompt, every example uses content you are actually studying — Accounts, Tax, Law, Costing, Auditing.</div>
+      </div>
+      <div class="for-card">
+        <div class="for-num">02</div>
+        <div class="for-title">You have opened ChatGPT, but not seriously</div>
+        <div class="for-desc">You know AI exists. You have used it a few times. But you have no system, no prompts that reliably work, and no idea how to connect it to your actual CA Inter preparation. This course fixes that.</div>
+      </div>
+      <div class="for-card">
+        <div class="for-num">03</div>
+        <div class="for-title">You want to pass your exams and figure out your career</div>
+        <div class="for-desc">The first 4 hours give you an immediate study edge. The next 6 hours show you where the profession is heading and how to position yourself ahead of it.</div>
+      </div>
+      <div class="for-card">
+        <div class="for-num">04</div>
+        <div class="for-title">You are in or about to start articleship</div>
+        <div class="for-desc">Most CA firms in India are not using AI systematically yet. This course prepares you to be the person in the room who already knows how — and can bring it in without overstepping.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="modules-sec">
+  <div class="inner">
+    <div class="sec-label">The curriculum</div>
+    <h2 class="sec-title">5 modules. 10 hours.<br>Zero filler.</h2>
+    <p class="sec-sub">Click any module to see the full lesson breakdown, tools covered, and what you will be able to do after it.</p>
+    <div id="mod-container"></div>
+  </div>
+</section>
+
+<section class="principles-sec">
+  <div class="inner">
+    <div class="sec-label" style="color:rgba(255,255,255,0.28)">How every module is taught</div>
+    <h2 class="sec-title" style="color:white">Four principles.<br>Every single session.</h2>
+    <div class="principles-grid">
+      <div class="p-card">
+        <div class="p-num">01</div>
+        <div class="p-title">Show the old way, then the AI way</div>
+        <div class="p-desc">Every demo starts with the manual approach students know, then shows AI doing the same task faster. The contrast makes the value impossible to ignore.</div>
+      </div>
+      <div class="p-card">
+        <div class="p-num">02</div>
+        <div class="p-title">CA Inter syllabus throughout — no generic examples</div>
+        <div class="p-desc">AS 9, CARO, GST ITC, SA 315, marginal costing. Not invented business scenarios. The actual topics CA Inter students are studying right now.</div>
+      </div>
+      <div class="p-card">
+        <div class="p-num">03</div>
+        <div class="p-title">From the field, not from YouTube</div>
+        <div class="p-desc">Every module opens with a real story from AI deployment at a CA firm. Not theory. Not demos of demos. Actual work, actual context, actual outcomes.</div>
+      </div>
+      <div class="p-card">
+        <div class="p-num">04</div>
+        <div class="p-title">Brutally honest about what AI cannot do</div>
+        <div class="p-desc">AI fabricates section numbers, gets arithmetic wrong, and has no idea what the current GST rate is. Students learn exactly where AI fails and how to verify every output before using it.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="resources-sec">
+  <div class="inner">
+    <div class="sec-label">What every student gets</div>
+    <h2 class="sec-title">Not just 10 hours of video.<br>A full working toolkit.</h2>
+    <p class="sec-sub">Every resource is CA-specific. Nothing generic, nothing reused from another course.</p>
+    <div class="res-grid">
+      <div class="res-card">
+        <span class="res-icon">📄</span>
+        <p class="res-name">30-prompt swipe file</p>
+        <p class="res-desc">Subject-specific AI prompts for every CA Inter paper. Open tomorrow morning and start immediately.</p>
+      </div>
+      <div class="res-card">
+        <span class="res-icon">⚙️</span>
+        <p class="res-name">2 AI tools you build</p>
+        <p class="res-desc">A revision quiz generator and a tax scenario explainer — built live on screen, yours to keep and share.</p>
+      </div>
+      <div class="res-card">
+        <span class="res-icon">✅</span>
+        <p class="res-name">Verification checklist</p>
+        <p class="res-desc">The 5-point professional check before trusting any AI output in CA work or exam prep.</p>
+      </div>
+      <div class="res-card">
+        <span class="res-icon">🗓️</span>
+        <p class="res-name">10-day AI kickstart plan</p>
+        <p class="res-desc">Day by day actions for your first 10 days: revision sessions, one articleship workflow, one tool built independently. Tight enough to actually finish.</p>
+      </div>
+      <div class="res-card">
+        <span class="res-icon">🏆</span>
+        <p class="res-name">Completion certificate</p>
+        <p class="res-desc">CA Classroom verified certificate with exact resume language so students know how to present it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="instructor-sec">
+  <div class="instructor-card">
+    <div class="instructor-photo-wrap">
+      <img src="./neshaaimg.png" alt="Neshaa Lakshminarayanan" class="instructor-photo" />
+    </div>
+    <div>
+      <div class="instructor-role">Your instructor</div>
+      <div class="instructor-name">Neshaa Lakshminarayanan</div>
+      <div class="instructor-company">
+        Fractional AI Operator &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/neshaalaksh/" target="_blank" class="instructor-company-link">Neshworks</a>
+      </div>
+      <p class="instructor-bio">
+        I am not a consultant who makes slide decks about AI. I am not a faculty member who picked it up for a course. I go into businesses, figure out where AI actually fits into their work, build it into their workflows, and stay until it runs without me. That operational background is what this course is built on. The limitations I teach are ones I have run into in actual deployments, not in demos. The tools I recommend are the ones that hold up in practice. My lens throughout is simple: does this actually work, or does it just look good on screen?
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">CA Classroom &nbsp;×&nbsp; AI for CA Students</div>
+    <div class="footer-note">Standalone course &nbsp;·&nbsp; 2026 &nbsp;·&nbsp; For internal review</div>
+  </div>
+</footer>
+
+<script>
+const modules = [
+  {
+    phase: 1,
+    num: 1,
+    nick: "AI Unlocked",
+    title: "What every CA student actually needs to know about AI",
+    hrs: "1 hour",
+    tag: "Foundations",
+    col: "#4A4845",
+    numBg: "#EDECEA",
+    numCol: "#4A4845",
+    tagBg: "#EDECEA",
+    tagCol: "#4A4845",
+    dotCol: "#888780",
+    hook: "You've opened ChatGPT. You haven't actually used AI yet.",
+    lessons: [
+      { t: "How LLMs work in 5 minutes", d: "Tokens, probability, training — explained in a way that permanently changes how you use every AI tool. No jargon, no computer science degree needed." },
+      { t: "ChatGPT vs Claude vs Perplexity vs Gemini — mapped to CA use cases", d: "ChatGPT and Claude for thinking, drafting, and concept explanation. Perplexity for current law, circulars, ITAT judgements, and anything that needs a source. Gemini if you work in Google Docs. Clear rules, not opinions." },
+      { t: "The 4 things AI is genuinely bad at — and why CAs need to know them", d: "Recent information it doesn't have. Arithmetic it gets wrong. Bare act sections it fabricates with confidence. ICAI exam content it cannot know. These four failure modes become the backbone of the professional verification habit you build throughout this course." },
+      { t: "Your first real prompt: live demo start to finish", d: "The difference between asking a vague question and writing a structured prompt — shown live in under 4 minutes. You will never prompt the same way again after this." },
+      { t: "From the field: how a Fractional AI Operator uses these tools daily", d: "Not hypotheticals. Not demos for the sake of demos. Real usage patterns from real CA firm work." }
+    ],
+    tools: [
+      { name: "ChatGPT", bg: "#EDECEA", bc: "#C8C6BC", col: "#4A4845" },
+      { name: "Claude", bg: "#EDECEA", bc: "#C8C6BC", col: "#4A4845" },
+      { name: "Perplexity", bg: "#EDECEA", bc: "#C8C6BC", col: "#4A4845" },
+      { name: "Gemini", bg: "#EDECEA", bc: "#C8C6BC", col: "#4A4845" }
+    ],
+    outBg: "#EDECEA", outCol: "#4A4845",
+    outcome: "You know exactly which tool to use for which job and can get a genuinely useful output on the first try."
+  },
+  {
+    phase: 1,
+    num: 2,
+    nick: "The Study Weapon",
+    title: "AI for CA Inter exam prep — subject by subject",
+    hrs: "3 hours",
+    tag: "Study · Exclusive",
+    numBg: "#DCF2EA",
+    numCol: "#085041",
+    tagBg: "#DCF2EA",
+    tagCol: "#085041",
+    dotCol: "#0D7A5F",
+    hook: "Your competitor is spending 8 hours on what you are about to do in 2.",
+    lessons: [
+      { t: "Accounts and Advanced Accounts — 45 min", d: "Journal entries explained on demand, accounting standards decoded in plain language, concept gaps filled instantly. Live demo: AS 9 Revenue Recognition explained, 3 practice problems generated with solutions, and a 10-question MCQ quiz created — all in one prompt session." },
+      { t: "Taxation: GST and Income Tax — 45 min", d: "Perplexity for finding recent amendments and circulars with cited sources. Claude for simplifying provisions into language that sticks. Plus the grounding technique: paste the exact section or circular into Claude before asking your question — now it works from your verified source, not its own memory. This one habit dramatically reduces wrong answers." },
+      { t: "Law — 30 min", d: "Dense Companies Act and other law sections turned into structured breakdowns: the condition, the exception, the consequence. Memory frameworks for sections that seem impossible to retain. Perplexity for recent NCLT orders and case law with actual citations." },
+      { t: "Costing and FM — 30 min", d: "Formula revision sheets generated for any topic on demand. Marginal costing and variance analysis problems walked through step by step. Standard costing shortcuts. Always verify arithmetic: AI makes calculation errors." },
+      { t: "Auditing — 30 min", d: "SA summaries built on demand for any standard (SA 315, SA 500, SA 700, SA 706). CARO 2020 revision. Case-based scenario questions generated from any SA. The most underused AI application in CA exam prep." },
+      { t: "Perplexity + NotebookLM for research", d: "Perplexity for live, cited sources on current law and circulars. NotebookLM to upload ICAI study material and query it directly — ask your own study material questions and get answers with page references." },
+      { t: "Building your personal AI study system — 15 min", d: "The universal prompt framework: explain the concept → give me 3 practice problems with solutions → now quiz me with 5 MCQs. Works for every subject, every topic. Plus the 30-prompt swipe file you take home." }
+    ],
+    tools: [
+      { name: "Claude", bg: "#DCF2EA", bc: "#5DCAA5", col: "#085041" },
+      { name: "ChatGPT", bg: "#DCF2EA", bc: "#5DCAA5", col: "#085041" },
+      { name: "Perplexity", bg: "#DCF2EA", bc: "#5DCAA5", col: "#085041" },
+      { name: "NotebookLM", bg: "#DCF2EA", bc: "#5DCAA5", col: "#085041" }
+    ],
+    outBg: "#DCF2EA", outCol: "#085041",
+    outcome: "You have a complete working AI study system for every CA Inter paper — with subject-specific prompts you open tomorrow morning during revision."
+  },
+  {
+    phase: 2,
+    num: 3,
+    nick: "The Real World",
+    title: "AI in CA firms and your articleship — the honest version",
+    hrs: "2 hours",
+    tag: "Career · Profession",
+    numBg: "#FDF0DC",
+    numCol: "#633806",
+    tagBg: "#FDF0DC",
+    tagCol: "#633806",
+    dotCol: "#B8720F",
+    hook: "Most CA firms in India are not using AI yet. That makes you the most valuable person in the room.",
+    lessons: [
+      { t: "The honest picture: where Indian CA firms actually are with AI", d: "Most small and mid-size practices are not systematically using AI. This is not a negative — it means the article who knows AI has an enormous first-mover advantage. No hype, no overpromising, no LinkedIn takes. Just the real situation." },
+      { t: "Articleship with AI: what day one actually looks like", d: "What impresses partners. What gets you in trouble. How to introduce AI into a firm that doesn't use it yet without overstepping. The article who brings something the firm doesn't have is unforgettable." },
+      { t: "AI in audit work", d: "Drafting CARO 2020 observations from rough field notes. SA-referenced risk analysis documents. Structuring management letter points from scattered findings. These are tasks every article repeats constantly — AI cuts them from 45 minutes to 8." },
+      { t: "AI in taxation practice", d: "Using Perplexity to research a tax position with cited circulars and judgements. Drafting the initial structure of a notice response for principal review. Amendment summaries for client advisory notes. Real workflows from actual CA firm work." },
+      { t: "AI in advisory and client communication", d: "Industry research for a client meeting prepared in 5 minutes with Perplexity. Benchmarking and data analysis for advisory reports. Drafting client-facing memos from raw discussion notes that the CA reviews and signs off on." },
+      { t: "The verification mindset — the professional habit that protects you", d: "AI output is always a first draft. The professional's job is to review it, catch what is wrong, and take accountability for what goes out. This habit is what separates the AI-literate CA from the one who gets into trouble." }
+    ],
+    tools: [
+      { name: "Claude", bg: "#FDF0DC", bc: "#EF9F27", col: "#633806" },
+      { name: "Perplexity", bg: "#FDF0DC", bc: "#EF9F27", col: "#633806" },
+      { name: "ChatGPT", bg: "#FDF0DC", bc: "#EF9F27", col: "#633806" }
+    ],
+    outBg: "#FDF0DC", outCol: "#633806",
+    outcome: "You walk into your articleship knowing exactly how to use AI to stand out — with the vocabulary, habits, and tools that make an impression from week one."
+  },
+  {
+    phase: 2,
+    num: 4,
+    nick: "Build Your Edge",
+    title: "Practical AI skills and your first AI tool — built live on screen",
+    hrs: "2 hours",
+    tag: "Skills · Build",
+    numBg: "#E4EEF9",
+    numCol: "#0C447C",
+    tagBg: "#E4EEF9",
+    tagCol: "#0C447C",
+    dotCol: "#1558A0",
+    hook: "By the end of this module you have something to show in an interview.",
+    lessons: [
+      { t: "How to make Claude work from your material, not its memory", d: "The single most important practical skill in the course. Copy a section, provision, or SA paragraph from your ICAI material. Paste it into Claude. Then ask your question. Claude now works from the source you just gave it — not from whatever it learned during training. Hallucination risk drops significantly. Works for tax sections, audit standards, company law, and anything where the exact wording matters." },
+      { t: "Prompt engineering that actually works: the RCTF framework", d: "Role, Context, Task, Format. Every element explained, then applied to real CA scenarios with before and after demos. The difference between getting a generic answer and getting something professionally usable — shown in real time." },
+      { t: "AI with Excel — no memorising formulas ever again", d: "Describe what you want in plain English, get the formula back. VLOOKUP, INDEX-MATCH, nested IFs, SUMPRODUCT, array formulas. Depreciation schedules, ITC reconciliation, variance analysis templates. The skill is describing, not remembering syntax." },
+      { t: "AI for professional writing at CA standard", d: "Client emails, engagement memos, audit observations, advisory notes — from bullet point rough notes to professionally structured output in minutes. The format that makes CA writing faster without dropping the standard." },
+      { t: "Build 1: CA Inter revision quiz generator — built live", d: "Using Claude Artifacts, zero code required. You describe what you want in plain English, Claude builds a working interactive tool. Your subject, your syllabus, shareable link. Every student follows along and ships their own version." },
+      { t: "Build 2: tax scenario explainer — built live", d: "A practice tool where you paste a tax provision and a scenario, and the tool walks through the logic and approach step by step. Framed correctly: this helps you understand how to think through a problem, not a calculator to trust blindly. The grounding technique is built directly into how the tool works." },
+      { t: "Perplexity Spaces for ongoing professional research", d: "Set up a persistent, searchable research hub around a recurring topic — GST, FEMA, audit standards, a specific industry. Query it repeatedly as new material arrives. The tool that compounds over time." },
+      { t: "The 5-point verification checklist", d: "Before any AI output goes anywhere: is the section number real, is the rate current, is the calculation verified, does the source actually say what AI claims, would you stake your professional reputation on this output? This checklist becomes habit by the end of the course." }
+    ],
+    tools: [
+      { name: "Claude Artifacts", bg: "#E4EEF9", bc: "#85B7EB", col: "#0C447C" },
+      { name: "ChatGPT", bg: "#E4EEF9", bc: "#85B7EB", col: "#0C447C" },
+      { name: "Excel + AI", bg: "#E4EEF9", bc: "#85B7EB", col: "#0C447C" },
+      { name: "Perplexity Spaces", bg: "#E4EEF9", bc: "#85B7EB", col: "#0C447C" }
+    ],
+    outBg: "#E4EEF9", outCol: "#0C447C",
+    outcome: "You can ground Claude in your own verified material to dramatically reduce wrong answers, build two working AI tools, use AI with Excel, and verify every output before it goes anywhere."
+  },
+  {
+    phase: 2,
+    num: 5,
+    nick: "The CA Who Gets Hired",
+    title: "Ethics, professional risk, and how to position yourself",
+    hrs: "2 hours",
+    tag: "Ethics · Career",
+    numBg: "#FAECE7",
+    numCol: "#712B13",
+    tagBg: "#FAECE7",
+    tagCol: "#712B13",
+    dotCol: "#C04530",
+    hook: "The CA who uses AI carelessly is a liability. The one who uses it right gets hired first.",
+    lessons: [
+      { t: "ICAI's current stance on AI", d: "What the institute has officially communicated. What the existing Code of Ethics already covers without needing new guidance. What frameworks are likely coming. No speculation — only what is documented or reasonably implied." },
+      { t: "What you must never paste into any AI tool", d: "Client names, PAN numbers, unpublished financials, confidential documents, exam-related content. Why even anonymised data carries risk. Free tool data policies versus enterprise versions — what is actually stored and for how long." },
+      { t: "Hallucinations and professional liability — the real risk", d: "AI fabricates section numbers that don't exist. It cites cases that were never decided. It gets calculations wrong while sounding certain. If you sign off on AI output without verifying it, you are professionally responsible. Not the tool. Real examples, real consequences." },
+      { t: "Academic integrity: using AI to learn vs using AI to cheat", d: "The clear line between using AI as a study aid to understand concepts, practice problems, and organise revision — and misrepresenting AI output as your own exam work. Where that line sits and how to stay on the right side of it." },
+      { t: "Which CA tasks AI reduces vs which skills become more valuable", d: "Honest and un-hyped. Routine compliance, data entry, standard document drafting — AI reduces these over time. Complex interpretation, client judgment, ethical decision-making, professional accountability — these become significantly more valuable precisely because AI handles the routine." },
+      { t: "How to list AI skills on a resume — exact language", d: "The specific, verifiable phrasing that hiring managers at CA firms notice. Not generic 'proficient in AI tools'. Language that shows you can actually do the work." },
+      { t: "How to answer AI questions in a CA firm interview", d: "Three questions you will be asked: Do you use AI? How do you verify AI output? What would you not use AI for? The answers that impress partners: specific, honest, and always mentioning accountability." },
+      { t: "Your 90-day plan — week by week", d: "Weeks 1 to 4: use AI for revision every study session using Module 2 prompts. Weeks 5 to 8: apply one AI workflow to articleship each week. Weeks 9 to 12: build one more Claude Artifacts tool independently. The plan that makes this course compound rather than collect dust." }
+    ],
+    tools: [
+      { name: "No new tools", bg: "#FAECE7", bc: "#F0997B", col: "#712B13" },
+      { name: "Strategy session", bg: "#FAECE7", bc: "#F0997B", col: "#712B13" }
+    ],
+    outBg: "#FAECE7", outCol: "#712B13",
+    outcome: "You use AI responsibly, can articulate your skills confidently to any employer, and leave with a concrete week-by-week plan to keep growing."
+  }
+];
+
+const container = document.getElementById('mod-container');
+let lastPhase = 0;
+
+modules.forEach(m => {
+  if (m.phase !== lastPhase) {
+    lastPhase = m.phase;
+    const ph = document.createElement('div');
+    ph.className = 'phase-row';
+    ph.innerHTML = `
+      <span class="phase-badge ${m.phase === 1 ? 'p1' : 'p2'}">${m.phase === 1 ? 'Phase 1' : 'Phase 2'}</span>
+      <span class="phase-desc">${m.phase === 1 ? 'Study wins' : 'Career and profession'}</span>
+      <span class="phase-line"></span>
+      <span class="phase-hrs">${m.phase === 1 ? '4 hours' : '6 hours'}</span>
+    `;
+    container.appendChild(ph);
+  }
+
+  const card = document.createElement('div');
+  card.className = 'mod-card';
+  card.id = 'mc' + m.num;
+
+  const lessons = m.lessons.map(l => `
+    <li>
+      <span class="l-dot" style="background:${m.dotCol}"></span>
+      <div class="l-body">
+        <div class="l-title">${l.t}</div>
+        ${l.d ? `<div class="l-desc">${l.d}</div>` : ''}
+      </div>
+    </li>
+  `).join('');
+
+  const tools = m.tools.map(t => `
+    <span class="tool-chip" style="background:${t.bg};border-color:${t.bc};color:${t.col}">${t.name}</span>
+  `).join('');
+
+  card.innerHTML = `
+    <div class="mod-head" onclick="toggleMod(${m.num})">
+      <div class="mod-num" style="background:${m.numBg};color:${m.numCol}">${m.num}</div>
+      <div class="mod-info">
+        <div class="mod-title">${m.title}</div>
+        <div class="mod-meta"><span>${m.nick}</span><span>·</span><span>${m.hrs}</span></div>
+      </div>
+      <span class="mod-tag" style="background:${m.tagBg};color:${m.tagCol}">${m.tag}</span>
+      <div class="mod-chev">▾</div>
+    </div>
+    <div class="mod-body" id="mb${m.num}">
+      <div class="mod-hook">"${m.hook}"</div>
+      <div class="body-label">Lessons</div>
+      <ul class="lesson-list">${lessons}</ul>
+      <div class="body-label">Tools used in this module</div>
+      <div class="tools-wrap">${tools}</div>
+      <div class="outcome-box" style="background:${m.outBg}">
+        <div class="outcome-label" style="color:${m.dotCol}">After this module you can</div>
+        <div class="outcome-text" style="color:${m.outCol}">${m.outcome}</div>
+      </div>
+    </div>
+  `;
+
+  container.appendChild(card);
+});
+
+function toggleMod(num) {
+  const card = document.getElementById('mc' + num);
+  const body = document.getElementById('mb' + num);
+  const isOpen = card.classList.contains('open');
+
+  document.querySelectorAll('.mod-card.open').forEach(c => c.classList.remove('open'));
+  document.querySelectorAll('.mod-body.open').forEach(b => b.classList.remove('open'));
+
+  if (!isOpen) {
+    card.classList.add('open');
+    body.classList.add('open');
+    setTimeout(() => card.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
+  }
+}
+</script>
+</body>
+</html>
